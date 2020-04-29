@@ -2,6 +2,7 @@ import local from './local'
 import development from './development'
 import production from './production'
 import colors from './colors'
+import store from './store'
 
 let config = {
   colors,
@@ -22,5 +23,5 @@ if (__DEV__) {
   }
 }
 
-export { colors }
+export { colors, store }
 export default config

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { Provider } from 'react-redux';
-import store from './config/store';
+import { store } from './config';
 
 export default () => (
   <Provider store={store}>
