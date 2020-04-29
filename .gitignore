@@ -59,4 +59,4 @@ buck-out/
 /ios/Pods/
 
 # Local config
-/config/local.js
+app/config/local.js
