@@ -5,7 +5,7 @@ import colors from './colors'
 
 let config = {
   colors,
-  storybookEnabled: false,
+  storybookEnabled: true,
 }
 
 if (__DEV__) {
