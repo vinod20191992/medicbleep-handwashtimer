@@ -3,11 +3,13 @@ import { View, StyleSheet, Text } from 'react-native'
 import { colors } from '../config'
 
 const ShiftView = ({ started }) => {
-  const { onShiftViewStyle, emptyViewStyle } = styles
+  const { onShiftViewStyle, emptyViewStyle, textStyle } = styles
   if (started) {
     return (
       <View style={onShiftViewStyle}>
-        <Text>Currently on shift and receiving reminders</Text>
+        <Text style={textStyle}>
+          Currently on shift and receiving reminders
+        </Text>
       </View>
     )
   }
@@ -29,5 +31,8 @@ const styles = StyleSheet.create({
   emptyViewStyle: {
     height: 35,
     marginTop: 25,
+  },
+  textStyle: {
+    color: colors.white,
   },
 })

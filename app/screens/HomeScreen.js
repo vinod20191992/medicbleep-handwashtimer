@@ -8,16 +8,19 @@ import {
   Image,
   FlatList,
 } from 'react-native'
-import { connect } from 'react-redux'
 import WashTimeCell from '../components/WashTimeCell'
 import { colors } from '../config'
 import logo from '../assets/images/logo.png'
 import ShiftView from '../components/ShiftView'
 import { startShift } from '../state/Shift'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectShiftStarted } from 'app/state/Shift'
+import { getWashTimes } from '../state/WashTimeHistory'
 
-export const HomeScreen = ({ started }) => {
+export const HomeScreen = () => {
   const dispatch = useDispatch()
+  const started = useSelector(selectShiftStarted)
+  const washTimes = useSelector(getWashTimes)
 
   const startShiftButtonClicked = () => {
     dispatch(startShift(!started))
@@ -26,7 +29,7 @@ export const HomeScreen = ({ started }) => {
   const keyExtractor = (item, index) => `${index}`
 
   const renderItem = ({ item, index }) => (
-    <WashTimeCell item={item} index={index} key={`${index} ${item.id}`} />
+    <WashTimeCell item={item} index={index} key={`${index}`} />
   )
 
   const washButtonClicked = () => {}
@@ -41,7 +44,6 @@ export const HomeScreen = ({ started }) => {
     startShiftStyle,
   } = styles
   const startShiftText = started ? 'End Shift' : 'Start Shift'
-  const washHistory = [{ id: '1', dateTime: Date.now() }]
   return (
     <SafeAreaView style={mainViewStyle}>
       <ShiftView started={started} />
@@ -56,7 +58,7 @@ export const HomeScreen = ({ started }) => {
       <Text style={historyTextViewStyle}>HISTORY</Text>
       <FlatList
         style={flatListStyle}
-        data={washHistory}
+        data={washTimes}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
       />
@@ -70,15 +72,7 @@ export const HomeScreen = ({ started }) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  const { started } = state.shiftReducer
-  const storeObject = {}
-  storeObject.started = started
-
-  return storeObject
-}
-
-export default connect(mapStateToProps)(HomeScreen)
+export default HomeScreen
 
 const styles = StyleSheet.create({
   mainViewStyle: {

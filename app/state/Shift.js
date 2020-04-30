@@ -22,4 +22,4 @@ export const startShift = (isStartShift) => ({
 })
 
 // Selectors
-export const selectShiftStarted = (state) => state.shift.started
+export const selectShiftStarted = (state) => state.shiftReducer.started
