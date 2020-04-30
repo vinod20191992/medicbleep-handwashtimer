@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
 
 class Splash extends Component {
   constructor(props) {
@@ -7,12 +7,22 @@ class Splash extends Component {
   }
 
   render() {
+    const { layoutStyle } = styles
     return (
-      <View>
-        <Text>Splash Screen</Text>
-      </View>
+      <SafeAreaView styles={layoutStyle}>
+        <View>
+          <Text>Splash Screen</Text>
+        </View>
+      </SafeAreaView>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  layoutStyle: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+})
 
 export default Splash

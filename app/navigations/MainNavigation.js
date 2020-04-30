@@ -1,9 +1,10 @@
 import { createStackNavigator } from '@react-navigation/stack'
-import React, { Component } from 'react'
+import React from 'react'
 import { Splash } from '../screens'
-import { routes } from '../config'
+import { routes, colors } from '../config'
 
 const { SPLASH } = routes
+const { blackColor, themeColor } = colors
 
 const Stack = createStackNavigator()
 
@@ -11,9 +12,9 @@ const MainNavigation = () => (
   <Stack.Navigator
     screenOptions={({ route, navigation }) => {
       return {
-        headerTintColor: '#10A5DA',
+        headerTintColor: themeColor,
         headerTitleStyle: {
-          color: '#000000',
+          color: blackColor,
         },
         headerBackTitle: 'Back',
       }
@@ -26,26 +27,4 @@ const MainNavigation = () => (
     />
   </Stack.Navigator>
 )
-
-class AuthNavigation extends Component {
-  static router = MainNavigation.router
-
-  render() {
-    return <MainNavigation />
-  }
-}
-
-/**
- * propTypes for MainNavigation
- */
-MainNavigation.propTypes = {
-  //
-}
-
-/**
- * defaultProps for MainNavigation
- */
-MainNavigation.defaultProps = {
-  //
-}
-export default AuthNavigation
+export default MainNavigation

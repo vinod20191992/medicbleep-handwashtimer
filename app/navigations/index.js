@@ -1,3 +1,3 @@
-import RootNavigator from './MainNavigation'
+import MainNavigation from './MainNavigation'
 
-export default RootNavigator
+export default MainNavigation
