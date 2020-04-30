@@ -15,7 +15,6 @@ const TimerComponent = ({ navigation }) => {
     return () => clearInterval(id)
   }, [timer])
 
-  console.log('timer new : ', timer)
   return (
     <View style={styles.container}>
       <View style={styles.circleView}>
@@ -31,14 +30,15 @@ export default TimerComponent
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   circleView: {
-    width: 150,
-    height: 150,
+    width: 200,
+    height: 200,
     backgroundColor: colors.circleBackground,
     borderRadius: 100,
     alignSelf: 'center',
-    marginTop: 20,
     alignItems: 'center',
     justifyContent: 'center',
   },

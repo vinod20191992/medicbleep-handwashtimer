@@ -1,3 +1,4 @@
 import TimerComponent from './TimerComponent'
+import InstructionCell from './InstructionCell'
 
-export { TimerComponent }
+export { TimerComponent, InstructionCell }
