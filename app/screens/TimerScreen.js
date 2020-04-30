@@ -1,13 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { View, Text, StyleSheet } from 'react-native'
+import { TimerComponent } from '../components'
 
-class TimerScreen extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return null
-  }
+const TimerScreen = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <TimerComponent />
+    </View>
+  )
 }
 
 export default TimerScreen
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+})

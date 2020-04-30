@@ -1,13 +1,42 @@
-import React, { Component } from 'react'
+import React from 'react'
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Text,
+  SafeAreaView,
+} from 'react-native'
+import { colors } from '../config'
 
-class Home extends Component {
-  constructor(props) {
-    super(props)
+const Home = ({ navigation }) => {
+  const goToTimerScreen = () => {
+    navigation
   }
 
-  render() {
-    return null
-  }
+  return (
+    <SafeAreaView>
+      <View style={styles.container}>
+        <TouchableOpacity
+          style={{ height: 50, width: 50, backgroundColor: 'red' }}
+          onPress={goToTimerScreen}
+        >
+          <Text>GO</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  )
 }
 
 export default Home
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  text: {
+    color: colors.black,
+    fontSize: 18,
+    textTransform: 'capitalize',
+    flex: 1,
+  },
+})
