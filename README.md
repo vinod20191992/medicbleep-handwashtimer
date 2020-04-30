@@ -83,6 +83,8 @@ Run the storybook server using `yarn storybook`, then start the app with `storyb
 
 ## Reactotron
 
+We are using Reactotron for inspecting `Logs` and `Networking` currently. We can configure more custom actions in `reactotron-config.js` file.
+
 **TODO** Implement
 
 [Reactotron](https://github.com/infinitered/reactotron/) is a quick and easy way to inspect what's going on with the app while it's running, and to modify some basic state.
