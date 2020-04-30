@@ -1,9 +1,9 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
-import { Splash } from '../screens'
+import { Home } from '../screens'
 import { routes, colors } from '../config'
 
-const { SPLASH } = routes
+const { HOME } = routes
 const { blackColor, themeColor } = colors
 
 const Stack = createStackNavigator()
@@ -21,8 +21,8 @@ const MainNavigation = () => (
     }}
   >
     <Stack.Screen
-      name={SPLASH}
-      component={Splash}
+      name={HOME}
+      component={Home}
       options={{ headerShown: false }}
     />
   </Stack.Navigator>
