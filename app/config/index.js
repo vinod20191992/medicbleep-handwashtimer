@@ -7,7 +7,6 @@ import routes from './routes'
 
 let config = {
   colors,
-  storybookEnabled: false,
 }
 
 if (__DEV__) {

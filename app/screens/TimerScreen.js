@@ -1,12 +1,14 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, SafeAreaView, StyleSheet } from 'react-native'
 import { TimerComponent } from '../components'
 
 const TimerScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <TimerComponent />
-    </View>
+    <SafeAreaView>
+      <View style={styles.container}>
+        <TimerComponent />
+      </View>
+    </SafeAreaView>
   )
 }
 

@@ -6,11 +6,11 @@ import {
   Text,
   SafeAreaView,
 } from 'react-native'
-import { colors } from '../config'
+import { colors, routes } from '../config'
 
 const Home = ({ navigation }) => {
   const goToTimerScreen = () => {
-    navigation
+    navigation.navigate({ name: routes.TIMER_SCREEN, key: routes.HOME })
   }
 
   return (
