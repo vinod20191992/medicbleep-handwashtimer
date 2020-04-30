@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {
+  SafeAreaView,
   View,
   StyleSheet,
   Text,
@@ -45,7 +46,7 @@ class HomeScreen extends Component {
     const startShiftText = isShiftStarted ? 'End Shift' : 'Start Shift'
     const washHistory = [{ id: '1', dateTime: Date.now() }]
     return (
-      <View style={mainViewStyle}>
+      <SafeAreaView style={mainViewStyle}>
         {this.showShiftStartedView()}
         <View style={washButtonBgViewStyle}>
           <TouchableOpacity
@@ -68,7 +69,7 @@ class HomeScreen extends Component {
         >
           <Text style={startShiftStyle}>{startShiftText}</Text>
         </TouchableOpacity>
-      </View>
+      </SafeAreaView>
     )
   }
 }
@@ -106,19 +107,19 @@ const styles = StyleSheet.create({
   historyTextViewStyle: {
     marginTop: 30,
     marginLeft: 30,
-    marginBottom: 30,
+    marginBottom: 20,
     color: colors.dayTextColor,
   },
   flatListStyle: {
     flex: 1,
   },
   startShiftButtonStyle: {
-    height: 120,
+    height: 80,
     backgroundColor: colors.navigationHeaderColor,
     alignItems: 'center',
   },
   startShiftStyle: {
-    marginTop: 20,
+    marginTop: 15,
     color: colors.white,
   },
 })

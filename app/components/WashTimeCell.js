@@ -74,15 +74,15 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 10,
     marginLeft: 10,
-    height: 40,
+    height: 50,
   },
   dayView: {
-    fontSize: 14,
+    fontSize: 15,
     color: colors.dayTextColor,
     fontWeight: '500',
   },
   dateView: {
-    fontSize: 14,
+    fontSize: 15,
     color: colors.dateTextColor,
     fontWeight: '500',
     marginTop: 5,

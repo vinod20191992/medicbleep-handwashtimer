@@ -60,3 +60,5 @@ buck-out/
 
 # Local config
 app/config/local.js
+
+yarn.lock
