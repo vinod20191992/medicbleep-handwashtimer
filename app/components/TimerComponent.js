@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { colors } from '../config'
 
 const TimerComponent = ({ navigation }) => {
+  const [timer, setCounter] = useState(20)
+
+  const timerCounter = () => setCounter(timer - 1)
+
+  useEffect(() => {
+    if (timer <= 0) {
+      return
+    }
+    const id = setInterval(timerCounter, 1000)
+    return () => clearInterval(id)
+  }, [timer])
+
+  console.log('timer new : ', timer)
   return (
     <View style={styles.container}>
       <View style={styles.circleView}>
-        <Text style={styles.textSeconds}>18</Text>
+        <Text style={styles.textSeconds}>{timer}</Text>
         <Text style={styles.textSecondName}>Seconds</Text>
       </View>
     </View>
