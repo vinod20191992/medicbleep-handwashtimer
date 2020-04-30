@@ -1,4 +1,4 @@
-import Home from './Home'
 import TimerScreen from './TimerScreen'
+import HomeScreen from './HomeScreen'
 
-export { Home, TimerScreen }
+export { TimerScreen, HomeScreen }

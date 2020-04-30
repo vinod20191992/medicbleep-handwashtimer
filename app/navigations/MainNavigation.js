@@ -1,9 +1,9 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
-import { Home, TimerScreen } from '../screens'
+import { Home, TimerScreen, HomeScreen } from '../screens'
 import { routes, colors } from '../config'
 
-const { HOME, TIMER_SCREEN } = routes
+const { HOME, TIMER_SCREEN, HOME_SCREEN } = routes
 const { green, white } = colors
 
 const Stack = createStackNavigator()
@@ -21,8 +21,11 @@ const MainNavigation = () => (
       }
     }}
   >
-    <Stack.Screen name={HOME} component={Home} options={{ title: 'Home' }} />
-
+    <Stack.Screen
+      name={HOME_SCREEN}
+      component={HomeScreen}
+      options={{ title: 'Wash Timer' }}
+    />
     <Stack.Screen
       name={TIMER_SCREEN}
       component={TimerScreen}

@@ -1,4 +1,4 @@
 export default {
-  HOME: 'Home',
   TIMER_SCREEN: 'TimerScreen',
+  HOME_SCREEN: 'HomeScreen',
 }
