@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types'
-import React, { PureComponent } from 'react'
+import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { colors } from '../config'
 import {
@@ -8,48 +7,35 @@ import {
   convertDateIntoDateComponent,
 } from '../utils/DateUtils'
 
-class WashTimeCell extends PureComponent {
-  render() {
-    const {
-      mainView,
-      timeBgView,
-      timeTextView,
-      dayAndDateBgView,
-      dateView,
-      dayView,
-      sepratorViewStyle,
-    } = styles
-    const { item } = this.props
-    const { dateTime } = item
+const WashTimeCell = ({ item }) => {
+  const {
+    mainView,
+    timeBgView,
+    timeTextView,
+    dayAndDateBgView,
+    dateView,
+    dayView,
+    sepratorViewStyle,
+  } = styles
+  const { dateTime } = item
 
-    return (
-      <View>
-        <View style={mainView}>
-          <View style={timeBgView}>
-            <Text style={timeTextView}>{timeIn24HrsFormat(dateTime)}</Text>
-          </View>
-          <View style={dayAndDateBgView}>
-            <Text style={dateView}>{getDayFromDate(dateTime)}</Text>
-            <Text style={dayView}>
-              {convertDateIntoDateComponent(dateTime)}
-            </Text>
-          </View>
+  return (
+    <View>
+      <View style={mainView}>
+        <View style={timeBgView}>
+          <Text style={timeTextView}>{timeIn24HrsFormat(dateTime)}</Text>
         </View>
-        <View style={sepratorViewStyle} />
+        <View style={dayAndDateBgView}>
+          <Text style={dateView}>{getDayFromDate(dateTime)}</Text>
+          <Text style={dayView}>{convertDateIntoDateComponent(dateTime)}</Text>
+        </View>
       </View>
-    )
-  }
+      <View style={sepratorViewStyle} />
+    </View>
+  )
 }
 
 export default WashTimeCell
-
-WashTimeCell.defaultProps = {
-  item: {},
-}
-
-WashTimeCell.propTypes = {
-  item: PropTypes.instanceOf(Object),
-}
 
 const styles = StyleSheet.create({
   mainView: {
