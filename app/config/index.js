@@ -3,10 +3,10 @@ import development from './development'
 import production from './production'
 import colors from './colors'
 import store from './store'
+import routes from './routes'
 
 let config = {
   colors,
-  storybookEnabled: false,
 }
 
 if (__DEV__) {
@@ -23,5 +23,5 @@ if (__DEV__) {
   }
 }
 
-export { colors, store }
+export { colors, store, routes }
 export default config
