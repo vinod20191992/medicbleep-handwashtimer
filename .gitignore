@@ -57,8 +57,10 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+/ios/Podfile.lock
 
 # Local config
 app/config/local.js
 
+# yarn lock
 yarn.lock
