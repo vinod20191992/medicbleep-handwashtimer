@@ -1,20 +1,13 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
 import { Provider } from 'react-redux'
 import { store } from './config'
+import { NavigationContainer } from '@react-navigation/native'
+import RootNavigator from './navigations'
 
 export default () => (
   <Provider store={store}>
-    <View style={styles.container}>
-      <Text>Hand Wash Timer</Text>
-    </View>
+    <NavigationContainer>
+      <RootNavigator />
+    </NavigationContainer>
   </Provider>
 )
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
