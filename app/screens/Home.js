@@ -16,10 +16,7 @@ const Home = ({ navigation }) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <TouchableOpacity
-          style={{ height: 50, width: 50, backgroundColor: 'red' }}
-          onPress={goToTimerScreen}
-        >
+        <TouchableOpacity style={styles.buttonStyle} onPress={goToTimerScreen}>
           <Text>GO</Text>
         </TouchableOpacity>
       </View>
@@ -39,4 +36,5 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
     flex: 1,
   },
+  buttonStyle: { height: 50, width: 50, backgroundColor: 'red' },
 })
