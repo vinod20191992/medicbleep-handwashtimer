@@ -6,7 +6,6 @@ import store from './store'
 
 let config = {
   colors,
-  storybookEnabled: false,
 }
 
 if (__DEV__) {
