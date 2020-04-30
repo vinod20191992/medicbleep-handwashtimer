@@ -1,120 +1,58 @@
 import React from 'react'
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Dimensions,
-  Switch,
-} from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Switch } from 'react-native'
 import { colors } from '../config'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import DividerComponent from './DividerComponent'
 
-const { settingsCellTextColor, settingsCellBorderLineColor } = colors
-const { width: screenWidth } = Dimensions.get('screen')
+const { cellTitle, dateText } = colors
 
 const SettingsCellComponent = ({
-  cellText,
+  title,
   onCellPress,
   onSwitchValueChange,
-  isSwitchCellComponent,
+  titleNumLines,
 }) => {
-  const cellPressed = () => {
-    if (onCellPress) {
-      onCellPress()
-    }
-  }
+  const cellPressed = () => (onCellPress ? onCellPress() : null)
+  const switchValueChanged = (value) =>
+    onSwitchValueChange ? onSwitchValueChange(value) : null
 
-  const switchValueChanged = () => {
-    if (onSwitchValueChange) {
-      onSwitchValueChange()
-    }
-  }
-
-  const textComponent = () => {
-    const { textContainerStyle, textStyle } = styles
-    return (
-      <View style={textContainerStyle}>
-        <Text style={textStyle}>{cellText}</Text>
-      </View>
-    )
-  }
-
-  const switchOrArrowComponent = () => {
-    const { switchOrArrowContainerStyle } = styles
-    return (
-      <View style={switchOrArrowContainerStyle}>
-        {isSwitchCellComponent ? (
-          <Switch onValueChange={switchValueChanged} />
-        ) : null}
-      </View>
-    )
-  }
-
-  const textOnArrowCell = () => {
-    const { touchableOpacityStyle } = styles
-    return (
-      <TouchableOpacity style={touchableOpacityStyle} onPress={cellPressed}>
-        {textComponent()}
-      </TouchableOpacity>
-    )
-  }
-
-  const getCellComponent = () => {
-    const { subContainerStyle } = styles
-    return (
-      <View style={subContainerStyle}>
-        {isSwitchCellComponent ? textComponent() : textOnArrowCell()}
-        {switchOrArrowComponent()}
-      </View>
-    )
-  }
-
-  const { containerStyle, borderLineStyle } = styles
+  const { titleText, wrapper, innerContent, icon } = styles
   return (
-    <View style={containerStyle}>
-      {getCellComponent()}
-      <View style={borderLineStyle} />
-    </View>
+    <TouchableOpacity
+      onPress={cellPressed}
+      activeOpacity={cellPressed == null ? 1 : undefined}
+    >
+      <View style={wrapper}>
+        <Text style={titleText} numberOfLines={titleNumLines}>
+          {title}
+        </Text>
+        <View style={innerContent}>
+          {onCellPress == null ? (
+            <Switch onValueChange={switchValueChanged} />
+          ) : (
+            <Icon style={icon} name="chevron-right" />
+          )}
+        </View>
+      </View>
+      <DividerComponent />
+    </TouchableOpacity>
   )
 }
 
 export default SettingsCellComponent
 
 const styles = StyleSheet.create({
-  containerStyle: {
-    marginTop: 14,
-    width: '100%',
-    height: 45,
-  },
-  subContainerStyle: {
-    width: '100%',
-    height: 45,
-    flexDirection: 'row',
-  },
-  textContainerStyle: {
-    justifyContent: 'center',
-    marginLeft: 21,
-    marginRight: 3,
-    width: screenWidth - 102,
-  },
-  textStyle: {
+  titleText: {
+    flex: 1,
     fontSize: 17,
     fontWeight: '400',
-    color: settingsCellTextColor,
+    color: cellTitle,
+    marginTop: 12,
+    marginBottom: 12,
+    marginLeft: 21,
+    marginRight: 10,
   },
-  touchableOpacityStyle: {
-    height: 45,
-    justifyContent: 'center',
-  },
-  borderLineStyle: {
-    height: 1,
-    backgroundColor: settingsCellBorderLineColor,
-    width: screenWidth - 13,
-    marginLeft: 13,
-  },
-  switchOrArrowContainerStyle: {
-    marginRight: 27,
-    width: 51,
-    justifyContent: 'center',
-  },
+  wrapper: { flexDirection: 'row' },
+  innerContent: { justifyContent: 'center', marginRight: 27 },
+  icon: { color: dateText, fontWeight: '400', fontSize: 17 },
 })
