@@ -1,13 +1,25 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { StyleSheet, View, Text } from 'react-native'
+import { colors } from '../config'
 
-class Home extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return null
-  }
+const Home = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Some Text</Text>
+    </View>
+  )
 }
 
 export default Home
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  text: {
+    color: colors.black,
+    fontSize: 18,
+    textTransform: 'capitalize',
+    flex: 1,
+  },
+})

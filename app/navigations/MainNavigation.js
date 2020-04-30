@@ -4,7 +4,7 @@ import { Home } from '../screens'
 import { routes, colors } from '../config'
 
 const { HOME } = routes
-const { blackColor, themeColor } = colors
+const { black, green } = colors
 
 const Stack = createStackNavigator()
 
@@ -12,19 +12,15 @@ const MainNavigation = () => (
   <Stack.Navigator
     screenOptions={({ route, navigation }) => {
       return {
-        headerTintColor: themeColor,
+        headerTintColor: green,
         headerTitleStyle: {
-          color: blackColor,
+          color: black,
         },
         headerBackTitle: 'Back',
       }
     }}
   >
-    <Stack.Screen
-      name={HOME}
-      component={Home}
-      options={{ headerShown: false }}
-    />
+    <Stack.Screen name={HOME} component={Home} options={{ title: 'Home' }} />
   </Stack.Navigator>
 )
 export default MainNavigation
