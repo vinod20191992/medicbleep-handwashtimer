@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     width: 65,
     height: 40,
     marginLeft: 30,
-    backgroundColor: colors.navigationHeaderColor,
+    backgroundColor: colors.navigationHeader,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -64,12 +64,12 @@ const styles = StyleSheet.create({
   },
   dayView: {
     fontSize: 15,
-    color: colors.dayTextColor,
+    color: colors.dayText,
     fontWeight: '500',
   },
   dateView: {
     fontSize: 15,
-    color: colors.dateTextColor,
+    color: colors.dateText,
     fontWeight: '500',
     marginTop: 5,
   },
@@ -77,6 +77,6 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginRight: 0,
     height: 1,
-    backgroundColor: colors.separatorLineGrayColor,
+    backgroundColor: colors.separatorLineGray,
   },
 })

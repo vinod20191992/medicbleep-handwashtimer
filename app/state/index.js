@@ -1,12 +1,7 @@
 import { combineReducers } from 'redux'
-import StartShiftReducer from './StartShiftReducer'
+import Shift from './Shift'
 
-const appReducer = combineReducers({
-  startShiftReducer: StartShiftReducer,
+const rootReducer = combineReducers({
+  shiftReducer: Shift,
 })
-
-const rootReducer = (state, action) => {
-  return appReducer(state, action)
-}
-
 export default rootReducer
