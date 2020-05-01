@@ -16,7 +16,7 @@ const ShiftView = ({ started }) => {
   return <View style={emptyViewStyle} />
 }
 
-export default ShiftView
+export default React.memo(ShiftView)
 
 const styles = StyleSheet.create({
   onShiftViewStyle: {
