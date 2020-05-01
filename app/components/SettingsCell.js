@@ -16,7 +16,7 @@ const SettingsCell = ({
   const switchValueChanged = (value) =>
     onSwitchValueChange ? onSwitchValueChange(value) : null
 
-  const { titleText, wrapper, innerContent, icon } = styles
+  const { titleText, wrapper, innerContent } = styles
   return (
     <TouchableOpacity
       onPress={cellPressed}
