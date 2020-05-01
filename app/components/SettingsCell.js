@@ -1,22 +1,23 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Switch } from 'react-native'
 import { colors } from '../config'
+import Icon from 'react-native-vector-icons/FontAwesome'
 import Divider from './Divider'
 
-const { cellTitle } = colors
+const { cellTitle, dateText } = colors
 
 const SettingsCell = ({
   title,
   onCellPress,
   onSwitchValueChange,
   titleNumLines,
-  icon,
+  iconName,
 }) => {
   const cellPressed = () => (onCellPress ? onCellPress() : null)
   const switchValueChanged = (value) =>
     onSwitchValueChange ? onSwitchValueChange(value) : null
 
-  const { titleText, wrapper, innerContent } = styles
+  const { titleText, wrapper, innerContent, icon } = styles
   return (
     <TouchableOpacity
       onPress={cellPressed}
@@ -30,7 +31,7 @@ const SettingsCell = ({
           {onCellPress == null ? (
             <Switch onValueChange={switchValueChanged} />
           ) : (
-            icon
+            <Icon style={icon} name={iconName} />
           )}
         </View>
       </View>
@@ -54,4 +55,5 @@ const styles = StyleSheet.create({
   },
   wrapper: { flexDirection: 'row' },
   innerContent: { justifyContent: 'center', marginRight: 27 },
+  icon: { color: dateText, fontWeight: '400', fontSize: 17 },
 })
