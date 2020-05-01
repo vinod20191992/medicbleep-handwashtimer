@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, SafeAreaView, StyleSheet, FlatList } from 'react-native'
-import { TimerComponent, InstructionCell } from '../components'
+import { InstructionCell } from '../components'
 
 const TimerScreen = ({ navigation }) => {
   const data = [
@@ -39,12 +39,12 @@ const TimerScreen = ({ navigation }) => {
     <InstructionCell item={item} index={index} key={`${index}`} />
   )
 
+  const { safeAreaStyle, container, flatListStyle } = styles
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.container}>
-        <TimerComponent />
+    <SafeAreaView style={safeAreaStyle}>
+      <View style={container}>
         <FlatList
-          style={styles.flatListStyle}
+          style={flatListStyle}
           data={data}
           keyExtractor={keyExtractor}
           renderItem={renderItem}
@@ -63,4 +63,5 @@ const styles = StyleSheet.create({
   flatListStyle: {
     flex: 1,
   },
+  safeAreaStyle: { flex: 1 },
 })

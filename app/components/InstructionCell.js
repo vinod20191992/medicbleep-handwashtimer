@@ -34,7 +34,6 @@ export default InstructionCell
 
 const styles = StyleSheet.create({
   mainView: {
-    height: 60,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
@@ -62,6 +61,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: colors.dateText,
     fontWeight: '500',
+    marginBottom: 5,
   },
   dateView: {
     fontSize: 15,
