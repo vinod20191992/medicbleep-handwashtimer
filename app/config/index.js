@@ -2,7 +2,7 @@ import local from './local'
 import development from './development'
 import production from './production'
 import colors from './colors'
-import store from './store'
+import { store, persistor } from './store'
 import routes from './routes'
 import vectorIcons from './vectorIcons'
 
@@ -25,5 +25,5 @@ if (__DEV__) {
   }
 }
 
-export { colors, routes, store, vectorIcons }
+export { colors, routes, store, vectorIcons, persistor }
 export default config
