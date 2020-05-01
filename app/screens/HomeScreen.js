@@ -9,7 +9,7 @@ import {
   FlatList,
 } from 'react-native'
 import WashTimeCell from '../components/WashTimeCell'
-import { colors, routes } from '../config'
+import { colors, routes, vectorIcons } from '../config'
 import logo from '../assets/images/logo.png'
 import ShiftView from '../components/ShiftView'
 import { startShift } from '../state/Shift'
@@ -18,6 +18,24 @@ import { selectShiftStarted } from 'app/state/Shift'
 import { getWashTimes } from '../state/WashTimeHistory'
 
 export const HomeScreen = ({ navigation }) => {
+  const { Ionicons } = vectorIcons
+  const { white } = colors
+  const { settingButtonStyle } = styles
+  navigation.setOptions({
+    headerRight: () => (
+      <View>
+        <TouchableOpacity onPress={() => {}}>
+          <Ionicons
+            style={settingButtonStyle}
+            name={'ios-settings'}
+            size={25}
+            color={white}
+          />
+        </TouchableOpacity>
+      </View>
+    ),
+  })
+
   const dispatch = useDispatch()
   const started = useSelector(selectShiftStarted)
   const washTimes = useSelector(getWashTimes)
@@ -109,4 +127,5 @@ const styles = StyleSheet.create({
     marginTop: 15,
     color: colors.white,
   },
+  settingButtonStyle: { marginRight: 15 },
 })

@@ -4,9 +4,11 @@ import production from './production'
 import colors from './colors'
 import store from './store'
 import routes from './routes'
+import vectorIcons from './vectorIcons'
 
 let config = {
   colors,
+  timerDefault: 20,
 }
 
 if (__DEV__) {
@@ -23,5 +25,5 @@ if (__DEV__) {
   }
 }
 
-export { colors, routes, store }
+export { colors, routes, store, vectorIcons }
 export default config

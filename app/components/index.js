@@ -1,3 +1,3 @@
-import TimerComponent from './TimerComponent'
+import TimerButton from './TimerButton'
 
-export { TimerComponent }
+export { TimerButton }
