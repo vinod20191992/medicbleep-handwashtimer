@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { colors } from '../config'
+import Divider from './Divider'
 import {
   timeIn24HrsFormat,
   getDayFromDate,
@@ -15,7 +16,6 @@ const WashTimeCell = ({ item }) => {
     dayAndDateBgView,
     dateView,
     dayView,
-    sepratorViewStyle,
   } = styles
   const { dateTime } = item
 
@@ -30,7 +30,7 @@ const WashTimeCell = ({ item }) => {
           <Text style={dayView}>{convertDateIntoDateComponent(dateTime)}</Text>
         </View>
       </View>
-      <View style={sepratorViewStyle} />
+      <Divider />
     </View>
   )
 }

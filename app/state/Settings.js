@@ -1,6 +1,6 @@
 const initialState = {
-  isToStoreHistory: false,
-  isToAllowShiftReminders: false,
+  isToStoreHistory: true,
+  isToAllowShiftReminders: true,
 }
 
 // Types

@@ -10,5 +10,5 @@ export default {
   dayText: '#4A4A4A',
   dateText: '#9b9b9b',
   separatorLineGray: '#E5E9EA',
-  circleBackground: '#5AC8FA',
+  circleBackground: '#00A1D2',
 }

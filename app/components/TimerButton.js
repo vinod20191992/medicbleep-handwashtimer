@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import config, { colors, vectorIcons } from '../config'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { addWashTime } from '../state/WashTimeHistory'
+import { selectStoreHistory } from '../state/Settings'
 
 const TimerButton = ({ timerStart, image, text }) => {
   const dispatch = useDispatch()
+  const isStoreHistory = useSelector(selectStoreHistory)
   const timerDefault = config.timerDefault
   const [timer, setCounter] = useState(timerDefault)
   const [bottomText, setBottomText] = useState(text)
@@ -19,7 +21,10 @@ const TimerButton = ({ timerStart, image, text }) => {
       if (timer <= 0) {
         setBottomText('Well Done')
         setTimerStart(false)
-        dispatch(addWashTime({ datetime: Date.now() }))
+
+        if (isStoreHistory) {
+          dispatch(addWashTime({ dateTime: Date.now() }))
+        }
         return
       }
       const id = setInterval(timerCounter, 1000)
@@ -95,6 +100,7 @@ const styles = StyleSheet.create({
     backgroundColor: circleBackground,
     borderRadius: 100,
   },
+  imageView: { width: 100, height: 100 },
   circularView: {
     height: 190,
     width: 190,
