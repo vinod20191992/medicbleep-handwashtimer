@@ -8,8 +8,12 @@ export const ADD_WASH_TIME = 'add_wash_time'
 // Reducer
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case ADD_WASH_TIME:
-      return { ...state, washTimes: [...state.washTimes, action.payload] }
+    case ADD_WASH_TIME: {
+      const { washTimes } = state
+      console.log('washTimes', washTimes)
+      washTimes.push(action.payload)
+      return { ...state, washTimes: [...washTimes] }
+    }
     default:
       return state
   }

@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.navigationHeader,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 10,
   },
   emptyViewStyle: {
     height: 35,
