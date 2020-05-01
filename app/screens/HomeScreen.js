@@ -9,7 +9,7 @@ import {
   FlatList,
 } from 'react-native'
 import WashTimeCell from '../components/WashTimeCell'
-import { colors } from '../config'
+import { colors, routes } from '../config'
 import logo from '../assets/images/logo.png'
 import ShiftView from '../components/ShiftView'
 import { startShift } from '../state/Shift'
@@ -17,7 +17,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { selectShiftStarted } from 'app/state/Shift'
 import { getWashTimes } from '../state/WashTimeHistory'
 
-export const HomeScreen = () => {
+export const HomeScreen = ({ navigation }) => {
   const dispatch = useDispatch()
   const started = useSelector(selectShiftStarted)
   const washTimes = useSelector(getWashTimes)
@@ -32,7 +32,9 @@ export const HomeScreen = () => {
     <WashTimeCell item={item} index={index} key={`${index}`} />
   )
 
-  const washButtonClicked = () => {}
+  const washButtonClicked = () => {
+    navigation.navigate({ name: routes.TIMER_SCREEN, key: routes.HOME_SCREEN })
+  }
 
   const {
     mainViewStyle,
