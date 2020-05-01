@@ -21,14 +21,14 @@ const MainNavigation = () => (
     }}
   >
     <Stack.Screen
-      name={SETTINGS_SCREEN}
-      component={SettingsScreen}
-      options={{ title: 'Settings' }}
-    />
-    <Stack.Screen
       name={HOME_SCREEN}
       component={HomeScreen}
       options={{ title: 'Wash Timer' }}
+    />
+    <Stack.Screen
+      name={SETTINGS_SCREEN}
+      component={SettingsScreen}
+      options={{ title: 'Settings' }}
     />
   </Stack.Navigator>
 )
