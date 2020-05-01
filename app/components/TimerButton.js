@@ -29,7 +29,7 @@ const TimerButton = ({ timerStart, image, text }) => {
     }
   }, [timer])
 
-  const fill = 100 - (timer * 100) / timerDefault
+  const fill = timerStart ? 100 - (timer * 100) / timerDefault : 0
 
   const { FontAwesome } = vectorIcons
   const { white, green } = colors
@@ -39,11 +39,10 @@ const TimerButton = ({ timerStart, image, text }) => {
     textSecondName,
     viewStyle,
     progressStyle,
-    circularView,
   } = styles
 
-  const renderCircularProgress = () => {
-    return (
+  return (
+    <View style={container}>
       <AnimatedCircularProgress
         style={progressStyle}
         size={200}
@@ -55,26 +54,16 @@ const TimerButton = ({ timerStart, image, text }) => {
       >
         {() => (
           <View style={viewStyle}>
-            <Text style={textSeconds}>{timer}</Text>
+            {timerStartNew ? (
+              <Text style={textSeconds}>{timer}</Text>
+            ) : (
+              <FontAwesome name={image} size={30} color={white} />
+            )}
+
             <Text style={textSecondName}>{bottomText}</Text>
           </View>
         )}
       </AnimatedCircularProgress>
-    )
-  }
-
-  const renderCircularView = () => {
-    return (
-      <View style={circularView}>
-        <FontAwesome name={image} size={30} color={white} />
-        <Text style={textSecondName}>{bottomText}</Text>
-      </View>
-    )
-  }
-
-  return (
-    <View style={container}>
-      {timerStartNew ? renderCircularProgress() : renderCircularView()}
     </View>
   )
 }

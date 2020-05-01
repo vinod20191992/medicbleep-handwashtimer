@@ -96,6 +96,7 @@ export default HomeScreen
 const styles = StyleSheet.create({
   mainViewStyle: {
     flex: 1,
+    backgroundColor: colors.white,
   },
   washButtonBgViewStyle: {
     marginTop: 25,

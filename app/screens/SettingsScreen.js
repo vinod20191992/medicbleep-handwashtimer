@@ -1,16 +1,28 @@
 import React from 'react'
-import { View, StyleSheet, SafeAreaView } from 'react-native'
+import { View, StyleSheet, SafeAreaView, Linking } from 'react-native'
 import MedicBleepLogo from '../components/MedicBleepLogo'
 import { SettingsCell } from '../components'
 import { colors } from '../config'
+import { storeHistory, shiftReminders } from '../state/Settings'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectStoreHistory, selectShiftReminders } from 'app/state/Settings'
 
 const { white } = colors
 
-const Settings = ({ started }) => {
-  const storeHistoryValueChanged = (value) => {}
-  const shiftReminderValueChanged = (value) => {}
-  const aboutMbCellPressed = () => {}
-  const followCellPressed = () => {}
+const medicBleepAboutUsUrl = 'https://www.medicbleep.com/about.html'
+const medicBleepFollowTwitterUrl = 'https://twitter.com/MedicBleep'
+
+const SettingsScreen = ({}) => {
+  const dispatch = useDispatch()
+  const isStoreHistory = useSelector(selectStoreHistory)
+  const isShiftRemindersAllow = useSelector(selectShiftReminders)
+
+  const storeHistoryValueChanged = (value) =>
+    isStoreHistory !== value ? dispatch(storeHistory(value)) : null
+  const shiftReminderValueChanged = (value) =>
+    isShiftRemindersAllow !== value ? dispatch(shiftReminders(value)) : null
+  const aboutMbCellPressed = () => Linking.openURL(medicBleepAboutUsUrl)
+  const followCellPressed = () => Linking.openURL(medicBleepFollowTwitterUrl)
 
   const { container, contentWrapper } = styles
   return (
@@ -20,6 +32,7 @@ const Settings = ({ started }) => {
           title={'Store History'}
           onCellPress={null}
           onSwitchValueChange={storeHistoryValueChanged}
+          switchValue={isStoreHistory}
           titleNumLines={1}
           iconName={null}
         />
@@ -27,6 +40,7 @@ const Settings = ({ started }) => {
           title={'Two Hour On Shift Reminders'}
           onCellPress={null}
           onSwitchValueChange={shiftReminderValueChanged}
+          switchValue={isShiftRemindersAllow}
           titleNumLines={2}
           iconName={null}
         />
@@ -50,7 +64,7 @@ const Settings = ({ started }) => {
   )
 }
 
-export default Settings
+export default SettingsScreen
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: white },
