@@ -1,5 +1,5 @@
-import TimerScreen from './TimerScreen'
+// import TimerScreen from './TimerScreen'
 import HomeScreen from './HomeScreen'
-import Settings from './Settings'
+import SettingsScreen from './SettingsScreen'
 
-export { HomeScreen, Settings, TimerScreen }
+export { HomeScreen, SettingsScreen }

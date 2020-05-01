@@ -10,6 +10,7 @@ const SettingsCell = ({
   title,
   onCellPress,
   onSwitchValueChange,
+  switchValue,
   titleNumLines,
   iconName,
 }) => {
@@ -29,7 +30,7 @@ const SettingsCell = ({
         </Text>
         <View style={innerContent}>
           {onCellPress == null ? (
-            <Switch onValueChange={switchValueChanged} />
+            <Switch onValueChange={switchValueChanged} value={switchValue} />
           ) : (
             <Icon style={icon} name={iconName} />
           )}
