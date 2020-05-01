@@ -1,10 +1,10 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
-import { HomeScreen, SettingsScreen } from '../screens'
+import { HomeScreen, SettingsScreen, TimerScreen } from '../screens'
 import { routes, colors } from '../config'
 
-const { HOME_SCREEN, SETTINGS_SCREEN } = routes
-const { black, green } = colors
+const { SETTINGS_SCREEN, TIMER_SCREEN, HOME_SCREEN } = routes
+const { green, white } = colors
 
 const Stack = createStackNavigator()
 
@@ -12,11 +12,12 @@ const MainNavigation = () => (
   <Stack.Navigator
     screenOptions={({ route, navigation }) => {
       return {
-        headerTintColor: green,
+        headerTintColor: white,
         headerTitleStyle: {
-          color: black,
+          color: white,
         },
         headerBackTitle: 'Back',
+        headerStyle: { backgroundColor: green },
       }
     }}
   >
@@ -29,6 +30,11 @@ const MainNavigation = () => (
       name={SETTINGS_SCREEN}
       component={SettingsScreen}
       options={{ title: 'Settings' }}
+    />
+    <Stack.Screen
+      name={TIMER_SCREEN}
+      component={TimerScreen}
+      options={{ title: 'Timer' }}
     />
   </Stack.Navigator>
 )
