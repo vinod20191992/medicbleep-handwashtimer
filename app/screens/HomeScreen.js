@@ -20,10 +20,15 @@ export const HomeScreen = ({ navigation }) => {
   const { FontAwesome } = vectorIcons
   const { white } = colors
   const { settingButtonStyle } = styles
+  const { SETTINGS_SCREEN, HOME_SCREEN } = routes
   navigation.setOptions({
     headerRight: () => (
       <View>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate({ name: SETTINGS_SCREEN, key: HOME_SCREEN })
+          }}
+        >
           <FontAwesome
             style={settingButtonStyle}
             name={'gear'}
