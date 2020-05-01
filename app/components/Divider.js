@@ -4,12 +4,12 @@ import { colors } from '../config'
 
 const { cellDivider } = colors
 
-const DividerComponent = () => {
+const Divider = () => {
   const { divider } = styles
   return <View style={divider} />
 }
 
-export default DividerComponent
+export default Divider
 
 const styles = StyleSheet.create({
   divider: { height: 1, backgroundColor: cellDivider, marginLeft: 13 },

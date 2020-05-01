@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Switch } from 'react-native'
 import { colors } from '../config'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import DividerComponent from './DividerComponent'
+import Divider from './Divider'
 
 const { cellTitle, dateText } = colors
 
@@ -34,7 +34,7 @@ const SettingsCellComponent = ({
           )}
         </View>
       </View>
-      <DividerComponent />
+      <Divider />
     </TouchableOpacity>
   )
 }
