@@ -5,17 +5,16 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  Image,
   FlatList,
 } from 'react-native'
 import WashTimeCell from '../components/WashTimeCell'
 import { colors, routes, vectorIcons } from '../config'
-import logo from '../assets/images/logo.png'
 import ShiftView from '../components/ShiftView'
 import { startShift } from '../state/Shift'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectShiftStarted } from 'app/state/Shift'
 import { getWashTimes } from '../state/WashTimeHistory'
+import { TimerButton } from '../components'
 
 export const HomeScreen = ({ navigation }) => {
   const { FontAwesome } = vectorIcons
@@ -72,7 +71,7 @@ export const HomeScreen = ({ navigation }) => {
           style={washButtonViewStyle}
           onPress={washButtonClicked}
         >
-          <Image source={logo} />
+          <TimerButton timerStart={false} image="gear" text="Wash" />
         </TouchableOpacity>
       </View>
       <Text style={historyTextViewStyle}>HISTORY</Text>

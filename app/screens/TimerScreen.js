@@ -8,7 +8,7 @@ const TimerScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={safeAreaStyle}>
       <View style={container}>
-        <TimerButton />
+        <TimerButton timerStart={true} image="thumbs-up" text="Seconds" />
       </View>
     </SafeAreaView>
   )

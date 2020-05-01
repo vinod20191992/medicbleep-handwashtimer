@@ -5,68 +5,76 @@ import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import { useDispatch } from 'react-redux'
 import { addWashTime } from '../state/WashTimeHistory'
 
-const TimerButton = ({ navigation }) => {
+const TimerButton = ({ timerStart, image, text }) => {
   const dispatch = useDispatch()
   const timerDefault = config.timerDefault
   const [timer, setCounter] = useState(timerDefault)
-  const [text, setText] = useState('Seconds')
+  const [bottomText, setBottomText] = useState(text)
+  const [timerStartNew, setTimerStart] = useState(timerStart)
 
   const timerCounter = () => setCounter(timer - 1)
 
   useEffect(() => {
-    if (timer <= 0) {
-      setText('Well Done')
-      dispatch(addWashTime({ datetime: Date.now() }))
-      return
-    }
-    const id = setInterval(timerCounter, 1000)
-    return () => {
-      clearInterval(id)
+    if (timerStartNew) {
+      if (timer <= 0) {
+        setBottomText('Well Done')
+        setTimerStart(false)
+        dispatch(addWashTime({ datetime: Date.now() }))
+        return
+      }
+      const id = setInterval(timerCounter, 1000)
+      return () => {
+        clearInterval(id)
+      }
     }
   }, [timer])
 
-  const fill = 100 - timer * 5
+  const fill = 100 - (timer * 100) / timerDefault
 
   const { FontAwesome } = vectorIcons
-  const { white } = colors
+  const { white, green } = colors
   const {
     container,
     textSeconds,
     textSecondName,
     viewStyle,
     progressStyle,
+    circularView,
   } = styles
 
-  const renderTimer = () => {
+  const renderCircularProgress = () => {
     return (
-      <View>
-        {timer === 0 ? (
-          <FontAwesome name={'thumbs-up'} size={30} color={white} />
-        ) : (
-          <Text style={textSeconds}>{timer}</Text>
-        )}
-      </View>
-    )
-  }
-
-  return (
-    <View style={container}>
       <AnimatedCircularProgress
         style={progressStyle}
         size={200}
         width={10}
         fill={fill}
         rotation={0}
-        tintColor={colors.green}
-        backgroundColor={colors.white}
+        tintColor={green}
+        backgroundColor={white}
       >
         {() => (
           <View style={viewStyle}>
-            {renderTimer()}
-            <Text style={textSecondName}>{text}</Text>
+            <Text style={textSeconds}>{timer}</Text>
+            <Text style={textSecondName}>{bottomText}</Text>
           </View>
         )}
       </AnimatedCircularProgress>
+    )
+  }
+
+  const renderCircularView = () => {
+    return (
+      <View style={circularView}>
+        <FontAwesome name={image} size={30} color={white} />
+        <Text style={textSecondName}>{bottomText}</Text>
+      </View>
+    )
+  }
+
+  return (
+    <View style={container}>
+      {timerStartNew ? renderCircularProgress() : renderCircularView()}
     </View>
   )
 }
@@ -81,10 +89,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   textSeconds: { fontSize: 30, color: white },
-  textSecondName: { color: white, marginTop: 15, fontSize: 18 },
+  textSecondName: { color: white, marginTop: 25, fontSize: 18 },
   viewStyle: { alignItems: 'center', justifyContent: 'center' },
   progressStyle: {
     backgroundColor: circleBackground,
     borderRadius: 100,
+  },
+  circularView: {
+    height: 190,
+    width: 190,
+    borderRadius: 100,
+    backgroundColor: circleBackground,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 })
