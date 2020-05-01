@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { colors } from '../config'
+import Divider from './Divider'
 
 const InstructionCell = ({ item }) => {
   const {
@@ -10,7 +11,6 @@ const InstructionCell = ({ item }) => {
     dayAndDateBgView,
     dateView,
     dayView,
-    sepratorViewStyle,
   } = styles
   const { stepNumber, title, body } = item
 
@@ -25,7 +25,7 @@ const InstructionCell = ({ item }) => {
           <Text style={dayView}>{body}</Text>
         </View>
       </View>
-      <View style={sepratorViewStyle} />
+      <Divider />
     </View>
   )
 }
@@ -67,11 +67,5 @@ const styles = StyleSheet.create({
     color: colors.dayText,
     fontWeight: '500',
     marginTop: 5,
-  },
-  sepratorViewStyle: {
-    marginLeft: 15,
-    marginRight: 0,
-    height: 1,
-    backgroundColor: colors.separatorLineGray,
   },
 })
