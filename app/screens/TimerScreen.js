@@ -5,29 +5,29 @@ import { InstructionCell } from '../components'
 const TimerScreen = ({ navigation }) => {
   const data = [
     {
-      sNo: 1,
+      stepNumber: 1,
       title: 'Wet your Hands',
       body:
         'With clean running water (warm or cold), turn off tap and apply soap',
     },
     {
-      sNo: 2,
+      stepNumber: 2,
       title: 'Lather Your Hands',
       body:
         'Rub them together with soap, Lather the back of your hands, between your fingers and under your nails.',
     },
     {
-      sNo: 3,
+      stepNumber: 3,
       title: 'Scrub',
       body: 'Scrub your hands for at least 20 seconds',
     },
     {
-      sNo: 4,
+      stepNumber: 4,
       title: 'Rinse Well',
       body: 'Using running clean water',
     },
     {
-      sNo: 5,
+      stepNumber: 5,
       title: 'Dry Your Hands',
       body: 'Using a clean towel or air dry them',
     },

@@ -12,13 +12,13 @@ const InstructionCell = ({ item }) => {
     dayView,
     sepratorViewStyle,
   } = styles
-  const { sNo, title, body } = item
+  const { stepNumber, title, body } = item
 
   return (
     <View>
       <View style={mainView}>
         <View style={timeBgView}>
-          <Text style={timeTextView}>{sNo}</Text>
+          <Text style={timeTextView}>{stepNumber}</Text>
         </View>
         <View style={dayAndDateBgView}>
           <Text style={dateView}>{title}</Text>
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 10,
     marginLeft: 10,
-    // height: 80,
     justifyContent: 'center',
   },
   dayView: {
