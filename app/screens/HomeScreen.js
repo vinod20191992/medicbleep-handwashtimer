@@ -5,19 +5,36 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  Image,
   FlatList,
 } from 'react-native'
 import WashTimeCell from '../components/WashTimeCell'
-import { colors } from '../config'
-import logo from '../assets/images/logo.png'
+import { colors, routes, vectorIcons } from '../config'
 import ShiftView from '../components/ShiftView'
 import { startShift } from '../state/Shift'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectShiftStarted } from 'app/state/Shift'
 import { getWashTimes } from '../state/WashTimeHistory'
+import { TimerButton } from '../components'
 
-export const HomeScreen = () => {
+export const HomeScreen = ({ navigation }) => {
+  const { FontAwesome } = vectorIcons
+  const { white } = colors
+  const { settingButtonStyle } = styles
+  navigation.setOptions({
+    headerRight: () => (
+      <View>
+        <TouchableOpacity onPress={() => {}}>
+          <FontAwesome
+            style={settingButtonStyle}
+            name={'gear'}
+            size={25}
+            color={white}
+          />
+        </TouchableOpacity>
+      </View>
+    ),
+  })
+
   const dispatch = useDispatch()
   const started = useSelector(selectShiftStarted)
   const washTimes = useSelector(getWashTimes)
@@ -32,7 +49,9 @@ export const HomeScreen = () => {
     <WashTimeCell item={item} index={index} key={`${index}`} />
   )
 
-  const washButtonClicked = () => {}
+  const washButtonClicked = () => {
+    navigation.navigate({ name: routes.TIMER_SCREEN, key: routes.HOME_SCREEN })
+  }
 
   const {
     mainViewStyle,
@@ -52,7 +71,7 @@ export const HomeScreen = () => {
           style={washButtonViewStyle}
           onPress={washButtonClicked}
         >
-          <Image source={logo} />
+          <TimerButton timerStart={false} image="gear" text="Wash" />
         </TouchableOpacity>
       </View>
       <Text style={historyTextViewStyle}>HISTORY</Text>
@@ -107,4 +126,5 @@ const styles = StyleSheet.create({
     marginTop: 15,
     color: colors.white,
   },
+  settingButtonStyle: { marginRight: 15 },
 })
