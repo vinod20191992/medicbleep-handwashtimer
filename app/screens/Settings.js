@@ -1,15 +1,51 @@
 import React from 'react'
-import { View, StyleSheet, Text, SafeAreaView } from 'react-native'
-import Logo from '../components/MedicBleepLogo'
+import { View, StyleSheet, SafeAreaView } from 'react-native'
+import MedicBleepLogo from '../components/MedicBleepLogo'
+import { SettingsCell } from '../components'
+import { colors } from '../config'
+
+const { white } = colors
 
 const Settings = ({ started }) => {
-  const { container, contentWrapper, logoWrapper } = styles
+  const storeHistoryValueChanged = (value) => {}
+  const shiftReminderValueChanged = (value) => {}
+  const aboutMbCellPressed = () => {}
+  const followCellPressed = () => {}
+
+  const { container, contentWrapper } = styles
   return (
     <SafeAreaView style={container}>
       <View style={contentWrapper}>
-        <Text>i m settings screen</Text>
+        <SettingsCell
+          title={'Store History'}
+          onCellPress={null}
+          onSwitchValueChange={storeHistoryValueChanged}
+          titleNumLines={1}
+          iconName={null}
+        />
+        <SettingsCell
+          title={'Two Hour On Shift Reminders'}
+          onCellPress={null}
+          onSwitchValueChange={shiftReminderValueChanged}
+          titleNumLines={2}
+          iconName={null}
+        />
+        <SettingsCell
+          title={'About Medic Bleep'}
+          onCellPress={aboutMbCellPressed}
+          onSwitchValueChange={null}
+          titleNumLines={1}
+          iconName={'chevron-right'}
+        />
+        <SettingsCell
+          title={'Follow @medicbleep on Twitter'}
+          onCellPress={followCellPressed}
+          onSwitchValueChange={null}
+          titleNumLines={2}
+          iconName={'chevron-right'}
+        />
       </View>
-      <Logo />
+      <MedicBleepLogo />
     </SafeAreaView>
   )
 }
@@ -17,7 +53,6 @@ const Settings = ({ started }) => {
 export default Settings
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: 'red' },
-  contentWrapper: { flex: 1, backgroundColor: 'blue' },
-  logoWrapper: {},
+  container: { flex: 1, backgroundColor: white },
+  contentWrapper: { flex: 1, marginTop: 36 },
 })

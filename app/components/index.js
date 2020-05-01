@@ -1,3 +1,4 @@
-import Logo from './Logo'
+import MedicBleepLogo from './MedicBleepLogo'
+import SettingsCell from './SettingsCell'
 
-export { Logo }
+export { MedicBleepLogo, SettingsCell }
