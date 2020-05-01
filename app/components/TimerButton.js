@@ -27,7 +27,7 @@ const TimerButton = ({ navigation }) => {
 
   const fill = 100 - timer * 5
 
-  const { FontAwesome5 } = vectorIcons
+  const { FontAwesome } = vectorIcons
   const { white } = colors
   const {
     container,
@@ -41,7 +41,7 @@ const TimerButton = ({ navigation }) => {
     return (
       <View>
         {timer === 0 ? (
-          <FontAwesome5 name={'thumbs-up'} size={30} color={white} />
+          <FontAwesome name={'thumbs-up'} size={30} color={white} />
         ) : (
           <Text style={textSeconds}>{timer}</Text>
         )}

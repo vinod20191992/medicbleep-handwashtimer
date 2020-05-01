@@ -18,16 +18,16 @@ import { selectShiftStarted } from 'app/state/Shift'
 import { getWashTimes } from '../state/WashTimeHistory'
 
 export const HomeScreen = ({ navigation }) => {
-  const { Ionicons } = vectorIcons
+  const { FontAwesome } = vectorIcons
   const { white } = colors
   const { settingButtonStyle } = styles
   navigation.setOptions({
     headerRight: () => (
       <View>
         <TouchableOpacity onPress={() => {}}>
-          <Ionicons
+          <FontAwesome
             style={settingButtonStyle}
-            name={'ios-settings'}
+            name={'gear'}
             size={25}
             color={white}
           />
